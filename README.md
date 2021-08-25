@@ -5,7 +5,7 @@ You need to get an [access key](https://stethospasm.weebly.com/pricing.html) to 
 
 Read the [disclaimers](https://stethospasm.weebly.com/disclaimers.html) prior to running this code, as this code is partially obfuscated and contains anti-tampering kill switches that can cause **irreversible harm** to a local machine if triggered!
 
-All updates will be applied remotley, you will not need to update the code yourself at any point.
+All updates to the botnet will be applied remotley, but you should keep your Python updated ofc.
 
 # Installation
 
