@@ -19,7 +19,7 @@ It will install all of the needed dependancies and modules for you.
 
 # Usage
 
-Once you run [main.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/main.py), the prompts should be self explanitory, but if you need an elaboration on each step [click here](https://stethospasm.weebly.com/instructions.html)
+Once you run [main.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/main.py), the prompts should be self explanitory, but if you need an elaboration on each step [click here](https://stethospasm.weebly.com/instructions.html).
 
 You cannot trigger the botnet from the terminal, you need to trigger the bots themselves via messages on Kik. To trigger an entire botnet, either add the whole botnet to a group and use the command, or send a mass message to each bot's PMs via modded Kik.
 
