@@ -20,7 +20,7 @@ except ModuleNotFoundError:
   time.sleep(1)
   print("Please wait...\n")
   time.sleep(2)
-  os.system('git clone -b new https://github.com/tomer8007/kik-bot-api-unofficial')
+  os.system('git clone -b new https://github.com/StethoSaysHello/kik-bot-api-unofficial')
   os.system('pip3 install ./kik-bot-api-unofficial')
   def install(package):
       subprocess.check_call([sys.executable, "-m", "pip", "install", package])
