@@ -1,9 +1,9 @@
 # About
 This is a Kik botnet that uses the [Tomer8007 Kik Bot API](https://github.com/tomer8007/kik-bot-api-unofficial) to spam users and groups.
 
-You need to get an [access key](https://stethospasm.weebly.com/pricing.html) to be able to use this botnet, you can get one for free!
+You need to get an [access key](https://pastebin.com/xZuEGMb3) to be able to use this botnet, you can get one for free!
 
-Read the [disclaimers](https://stethospasm.weebly.com/disclaimers.html) prior to running this code, as it contains anti-tampering kill switches that can cause **irreversible harm** to a local machine if triggered.
+Read the [disclaimers](https://endless.horse) prior to running this code, as it contains anti-tampering kill switches that can cause **irreversible harm** to a local machine if triggered.
 
 # Installation
 
@@ -15,7 +15,7 @@ Then just run [main.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/m
 
 # Usage
 
-Once you run [main.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/main.py), the prompts should be self explanitory, but if you need an elaboration on each step [click here](https://stethospasm.weebly.com/instructions.html).
+Once you run [main.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/main.py), the prompts should be self explanitory, but if you need an elaboration on each step [click here](https://pastebin.com/eaVFtUx9).
 
 You cannot trigger the botnet from the terminal, you need to trigger the bots themselves via messages on Kik. To trigger an entire botnet, either add the whole botnet to a group and use the command, or send a mass message to each bot's PMs via modded Kik.
 
