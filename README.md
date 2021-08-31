@@ -3,7 +3,7 @@ This is a Kik botnet that uses the [Tomer8007 Kik Bot API](https://github.com/to
 
 You need to get an [access key](https://pastebin.com/xZuEGMb3) to be able to use this botnet, you can get one for free!
 
-Read the [disclaimers](https://endless.horse) prior to running this code, as it contains anti-tampering kill switches that can cause **irreversible harm** to a local machine if triggered.
+Read the [disclaimers](https://pastebin.com/zRUVXuKL) prior to running this code, as it contains anti-tampering kill switches that can cause **irreversible harm** to a local machine if triggered.
 
 # Installation
 
