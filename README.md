@@ -31,3 +31,14 @@ You cannot trigger the botnet from the terminal, you need to trigger the bots th
 
 **"Leave [GJID]"** - Used for making your bot(s) leave groups.
 
+**"Refresh"** - Used to grab all bots JIDs and friend each of them.
+
+**"Antipurge [on/off]"** - Used to toggle repeatedly unbanning/adding/promoting all other bots.
+
+**"Antipurge check"** - Used to check if antipurge is on.
+
+**"AddAll"** - Used for adding all other bots to a group.
+
+**"Promote [JID/Username]"** - Used for promoting users when bot has admin.
+
+**"Demote [JID/Username]"** - Used for demoting users when bot has admin.
