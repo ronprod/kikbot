@@ -2,8 +2,6 @@
 This is a Kik botnet that uses the [Tomer8007 Kik Bot API](https://github.com/tomer8007/kik-bot-api-unofficial) to spam users and groups.
 (Version 5.0)
 
-Huge thank you to Okia and Node for ideas on new features to add and potential bug/issue solutions!
-
 # Installation
 
 Make sure you are using Python 3.6+, not python 2.7!
