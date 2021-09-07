@@ -38,7 +38,7 @@ You cannot trigger the botnet from the terminal, you need to trigger the bots th
 
 # Disclaimers
 
-None of the code here is "skidded" (stolen from other developers). It contains no malicious or hidden content, you are more than welcome to share and edit this code. 
+None of the code here is taken from other developers! It does not contain any malicious or hidden content, you are more than welcome to share and edit this code. 
 
 Previous versions of this bot were obfuscated and required an access key, these limits no longer apply. 
 
@@ -61,4 +61,4 @@ It contains the following additional commands:
 
 These features are **NOT** in this version. To gain access to the premium version, email stethospasm@gmail.com
 
-(Don't like the paywall? _Make it yourself._)
+(Don't like the paywall? [_Make it yourself._](https://pastebin.com/nZJsCRGX))
