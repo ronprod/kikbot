@@ -10,9 +10,9 @@ Make sure you are using Python 3.6+, not python 2.7!
 
 Use `git clone https://github.com/StethoSaysHello/KikBotnet`
 
-Then just run [main.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/main.py), it will install all of the needed dependancies for you. 
+Then just run [botnet.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/botnet.py), it will install all of the needed dependancies for you. 
 
-_Alternatively, you can just copy and paste the contents of [main.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/main.py)._
+_Alternatively, you can just copy and paste the contents of [botnet.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/botnet.py)._
 
 If you are running this on a program that attempts to automatically install packages from import statements, automatic setup will not work.
 If this happens, install dependancies manually using the following commands:
@@ -21,11 +21,11 @@ If this happens, install dependancies manually using the following commands:
 
 `pip3 install ./kik-bot-api-unofficial`
 
-Then the program should automatically install emoji, colorama, and kik_unofficial when you run [main.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/main.py).
+Then the program should automatically install emoji, colorama, and kik_unofficial when you run [botnet.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/botnet.py).
 
 # Usage
 
-Once you run [main.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/main.py), the prompts should be self explanatory, but if you need an elaboration on each step [click here](https://pastebin.com/6kdHjVKk).
+Once you run [botnet.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/botnet.py), the prompts should be self explanatory, but if you need an elaboration on each step [click here](https://pastebin.com/6kdHjVKk).
 
 You cannot trigger the botnet from the terminal, you need to trigger the bots themselves via messages on Kik. To trigger an entire botnet, either add the whole botnet to a group and use the command, or send a mass message to each bot's PMs via modded Kik.
 
