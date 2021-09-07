@@ -1,6 +1,8 @@
 # About
 This is a Kik botnet that uses the [Tomer8007 Kik Bot API](https://github.com/tomer8007/kik-bot-api-unofficial) to spam users and groups.
-(Version 5.0)
+(Version 5.1)
+
+I've hosted a copy on Replit for those of you who want to run it from your web browser, which you can find [here](https://replit.com/@StethoSaysHello/KikBotnet?v=1).
 
 # Installation
 
@@ -8,9 +10,18 @@ Make sure you are using Python 3.6+, not python 2.7!
 
 Use `git clone https://github.com/StethoSaysHello/KikBotnet`
 
-Then just run [main.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/main.py), it will install all of the needed dependancies and modules for you. 
+Then just run [main.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/main.py), it will install all of the needed dependancies for you. 
 
-_Alternatively, you can just copy and paste the contents of main.py._
+_Alternatively, you can just copy and paste the contents of [main.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/main.py)._
+
+If you are running this on a program that attempts to automatically install packages from import statements, automatic setup will not work.
+If this happens, install dependancies manually using the following commands:
+
+`git clone -b new https://github.com/StethoSaysHello/kik-bot-api-unofficial`
+
+`pip3 install ./kik-bot-api-unofficial`
+
+Then the program should automatically install emoji, colorama, and kik_unofficial when you run [main.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/main.py).
 
 # Usage
 
@@ -54,3 +65,5 @@ It contains the following additional commands:
 - **"Demote [JID/Username]"** - Used for demoting users when bot has admin.
 
 These features are **NOT** in this version. To gain access to the premium version, email stethospasm@gmail.com
+
+(If you don't like the paywall, _make it yourself._)
