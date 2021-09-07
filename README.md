@@ -15,13 +15,8 @@ Then just run [botnet.py](https://github.com/StethoSaysHello/KikBotnet/blob/main
 _Alternatively, you can just copy and paste the contents of [botnet.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/botnet.py)._
 
 If you are running this on a program that attempts to automatically install packages from import statements, automatic setup will not work.
-If this happens, install dependancies manually using the following commands:
-
-`git clone -b new https://github.com/StethoSaysHello/kik-bot-api-unofficial`
-
-`pip3 install ./kik-bot-api-unofficial`
-
-Then the program should automatically install emoji, colorama, and kik_unofficial when you run [botnet.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/botnet.py).
+If this happens, use [forcesetup.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/forcesetup.py) instead of [botnet.py](https://github.com/StethoSaysHello/KikBotnet/blob/main/botnet.py). 
+(You can tell when this happens because it will give you an AttributeError, the kik-bot-api-unofficial folder will not appear, and it will tell you that you have captchas when you do not.)
 
 # Usage
 
