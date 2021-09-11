@@ -132,7 +132,7 @@ try: #This big ol' try/except is for running if modules are installed, and insta
                                 self.client.send_chat_message(JID, "I am spamming the user \"" + jid_to_spam + "\" with the message \"" + emoji.emojize(message_to_spam) + "\"!")
                                 print("I am spamming the user \"" + jid_to_spam + "\" with the message \"" + emoji.emojize(
                                     message_to_spam) + "\"!")
-                                while spam = "Qm90IG1hZGUgYnkgU3RldGhvU2F5c0hlbGxv":
+                                while spam == "Qm90IG1hZGUgYnkgU3RldGhvU2F5c0hlbGxv":
                                     self.client.send_chat_message(jid_to_spam, emoji.emojize(message_to_spam)) #This is the bot spamming
                                     time.sleep(0.2) #< This is the delay between each message. You should leave it alone but if you need it to be faster/slower you can change it. NEVER set to 0, IP bans suck.
                         else: #This lets the user know when they used the command wrong because "w/" isnt in the string
@@ -218,7 +218,7 @@ try: #This big ol' try/except is for running if modules are installed, and insta
                                 self.client.send_chat_message(GJID, "I am spamming the user \"" + jid_to_spam + "\" with the message \"" + emoji.emojize(message_to_spam) + "\"!")
                                 print("I am spamming the user \"" + jid_to_spam + "\" with the message \"" + emoji.emojize(
                                     message_to_spam) + "\"!")
-                                while spam = "Qm90IG1hZGUgYnkgU3RldGhvU2F5c0hlbGxv":
+                                while spam == "Qm90IG1hZGUgYnkgU3RldGhvU2F5c0hlbGxv":
                                     self.client.send_chat_message(jid_to_spam, emoji.emojize(message_to_spam)) #This is the bot spamming
                                     time.sleep(0.2) #< This is the delay between each message. You should leave it alone but if you need it to be faster/slower you can change it. NEVER set to 0, IP bans suck.
                         else: #This lets the user know when they used the command wrong because "w/" isnt in the string
