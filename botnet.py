@@ -380,5 +380,5 @@ except ModuleNotFoundError: #This is triggered when the script fails to run beca
     install('emoji') #This is used to send/recieve, and encode/decode emojis.
     install('colorama') #This is used to display colored text in the terminal.
     install('kik_unofficial') #This is pretty obvious.
-    print(bcolors.OKBLUE + ("\nI'm done installing everything you need!\nThe program will now stop, please run this script again when you're ready.") + bcolors.ENDC) #This lets the user know to restart
+    print("\nI'm done installing everything you need!\nThe program will now stop, please run this script again when you're ready.")#This lets the user know to restart
     exit() #This stops the program
