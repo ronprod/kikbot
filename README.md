@@ -1,4 +1,4 @@
-IMPORTANT: As of 09/17/2020 (1pm MST) there is an issue with bot logins. Rumor has it that this is an action taken by Kik, as there have been no changes made to this code to cause this. Other scripts made with Tomer8007 are having the same issue. Please be patient while I look into this! - Stetho
+IMPORTANT: As of 09/17/2020 (1pm MST) there is an issue with bot logins. Rumor has it that this is an action taken by Kik, as there have been no changes made to this code to cause this. Other scripts made with Tomer8007's Kik Bot API are having the same issue. Please be patient while I look into this! - Stetho
 
 # About
 This is a Kik botnet that uses the [Tomer8007 Kik Bot API](https://github.com/tomer8007/kik-bot-api-unofficial) to spam users and groups.
