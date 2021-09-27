@@ -36,7 +36,9 @@ def ominous_dots(string): #This function is for making a "..." with a delay betw
 ominous_dots(bcolors.OKGREEN + ("Booting up") + bcolors.ENDC) # This lets the user know the bot is booting up.
 
 with contextlib.redirect_stdout(None): #This hides the output from installation to avoid spam
-    os.system('git clone -b new https://github.com/StethoSaysHello/kik-bot-api-unofficial')  # This installs the stuff from stetho's fork of Tomer8007's API. Just has some redundant stuff quoted out, keys added
+    automatic_setup = os.path.isdir("kik-bot-api-unofficial")  # This checks if the user has already installed the Kik Bot API
+    if automatic_setup == False:  # This is triggered if they have not
+        os.system('git clone -b new https://github.com/StethoSaysHello/kik-bot-api-unofficial')  # This installs the stuff from stetho's fork of Tomer8007's API. Just has some redundant stuff quoted out, keys added
     os.system('pip3 install ./kik-bot-api-unofficial')
 
 
@@ -62,7 +64,7 @@ else: #This is activated if the user is not up to date
     print(bcolors.FAIL + ("There is a new version of the botnet available! Please install the update, it can be found at https://github.com/StethoSaysHello/KikBotnet") + bcolors.ENDC)  # This asks the user to update
     input("Press enter to continue if you still want to use this outdated version! (Weirdo! lol)")
 
-def install(package):  # This is a function to make the installs a little more efficient.
+def install(package):  # This is a function to make the installs a little more efficient. I could have just used os.system again, but...
     subprocess.check_call([sys.executable, "-m", "pip", "install", package]) #This installs the package
 
 try: #This tries to import
@@ -499,4 +501,3 @@ while spam == "Qm90IG1hZGUgYnkgU3RldGhvU2F5c0hlbGxv": #This keeps the bot idle. 
         print(bcolors.OKGREEN + emoji.emojize("\npong.\n") + bcolors.ENDC)
     else: #If they do not type ping, it reminds them that commands must be sent to the kik bots.
         print(bcolors.FAIL + emoji.emojize("\n:warning: You can't use commands directly in the console! You need to message your bots on Kik.") + bcolors.ENDC)
-
