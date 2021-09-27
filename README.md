@@ -1,4 +1,4 @@
-**v5.2 was released on 09/26/2021!**
+**V5.2 was released on 09/26/2021!**
 For more information, check [Updates.md](https://github.com/StethoSaysHello/KikBotnet/blob/main/Updates.md)
 
 # About
@@ -24,7 +24,7 @@ Once you run the script, the prompts should be self explanatory, but if you need
 You cannot trigger the botnet from the terminal, you need to trigger the bots themselves via messages on Kik. To trigger an entire botnet, either add the whole botnet to a group and use the command, or send a mass message to each bot's PMs via modded Kik. Keep in mind that you need to make your own bot accounts, it will not make them for you!
 
 - **"Spam [JID or Username] w/ [Message]"** -  Used to spam a user's PMs.
-- 
+
 - **"Spam Gif [JID or Username] w/ [Query]"** - Used to spam a user's PMs with a gif.
 
 - **"Poke [JID or username] w/ [Message]"** -  Used for forwarding a single message to a user.
