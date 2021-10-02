@@ -1,4 +1,7 @@
-**V5.2 was released on 09/26/2021!**
+**THIS PROJECT IS NO LONGER MAINTAINED AS OF 11/02/2021.**
+
+
+V5.2 was released on 09/26/2021!
 For more information, check [Updates.md](https://github.com/StethoSaysHello/KikBotnet/blob/main/Updates.md)
 
 # About
