@@ -42,7 +42,7 @@ with contextlib.redirect_stdout(None): #This hides the output from installation 
     os.system('pip3 install ./kik-bot-api-unofficial')
 
 
-version_pastebin = "https://pastebin.com/raw/nJw8LV9C" #This grabs the pastebin where the current version is
+version_pastebin = "https://pastebin.com/raw/nQBHfedP" #This grabs the pastebin where the current version is
 page = urlopen(version_pastebin) #This opens the pastebin
 raw_version = page.read() #This reads the pastebin
 version = raw_version.decode("utf-8") #This decodes the page and gives us a string
