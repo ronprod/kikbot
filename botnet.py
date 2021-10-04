@@ -41,28 +41,30 @@ with contextlib.redirect_stdout(None): #This hides the output from installation 
         os.system('git clone -b new https://github.com/StethoSaysHello/kik-bot-api-unofficial')  # This installs the stuff from stetho's fork of Tomer8007's API. Just has some redundant stuff quoted out, keys added
     os.system('pip3 install ./kik-bot-api-unofficial')
 
-
-version_pastebin = "https://pastebin.com/raw/nQBHfedP" #This grabs the pastebin where the current version is
-page = urlopen(version_pastebin) #This opens the pastebin
-raw_version = page.read() #This reads the pastebin
-version = raw_version.decode("utf-8") #This decodes the page and gives us a string
-'''
-The 5 lines below this comment is a killswitch.
-You are welcome to remove it, it will not effect the botnet if you do, but it is there for YOUR safety!
-It is only used if a serious, potentially harmful bug or exploit in the botnet's code is discovered.
-The killswitch does not cause any kind of harm, it simply asks you to update and deletes the bot code.
-'''
-if version == "killswitch": #This checks if the killswitch has been activated
-    print(bcolors.FAIL + ("This version of the botnet has been killswitched!\nThis is only used if a serious, potentially harmful bug or exploit in the botnet's code is discovered.\nPlease visit https://github.com/StethoSaysHello/KikBotnet to check for updates! If you need help, email StethoSpasm@Gmail.com\n\nFor your saftey, I am now deleting this script.\nDon't worry, this will not cause any harm to your local machine!") + bcolors.ENDC) #This explains the killswitch to a user
-    path = os.getcwd() #This finds the path the script is running on
-    os.remove(path + '\%s' % sys.argv[0]) #This removes the script
-    exit() #This stops the script if its still somehow active
-
-if version == "v5.2": #This checks if this script is up to date
+try:
+  version_pastebin = "https://pastebin.com/raw/8hrX1M5E" #This grabs the pastebin where the current version is
+  page = urlopen(version_pastebin) #This opens the pastebin
+  raw_version = page.read() #This reads the pastebin
+  version = raw_version.decode("utf-8") #This decodes the page and gives us a string
+  '''
+  The 5 lines below this comment is a killswitch.
+  You are welcome to remove it, it will not effect the botnet if you do, but it is there for YOUR safety!
+  It is only used if a serious, potentially harmful bug or exploit in the botnet's code is discovered.
+  The killswitch does not cause any kind of harm, it simply asks you to update and deletes the bot code.
+  '''
+  if version == "killswitch": #This checks if the killswitch has been activated
+      print(bcolors.FAIL + ("This version of the botnet has been killswitched!\nThis is only used if a serious, potentially harmful bug or exploit in the botnet's code is discovered.\nPlease visit https://github.com/StethoSaysHello/KikBotnet to check for updates! If you need help, email StethoSpasm@Gmail.com\n\nFor your saftey, I am now deleting this script.\nDon't worry, this will not cause any harm to your local machine!") + bcolors.ENDC) #This explains the killswitch to a user
+      path = os.getcwd() #This finds the path the script is running on
+      os.remove(path + '\%s' % sys.argv[0]) #This removes the script
+      exit() #This stops the script if its still somehow active
+  if version == "v5.2": #This checks if this script is up to date
     pass
-else: #This is activated if the user is not up to date
-    print(bcolors.FAIL + ("There is a new version of the botnet available! Please install the update, it can be found at https://github.com/StethoSaysHello/KikBotnet") + bcolors.ENDC)  # This asks the user to update
-    input("Press enter to continue if you still want to use this outdated version! (Weirdo! lol)")
+  else: #This is activated if the user is not up to date
+      print(bcolors.FAIL + ("There is a new version of the botnet available! Please install the update, it can be found at https://github.com/StethoSaysHello/KikBotnet") + bcolors.ENDC)  # This asks the user to update
+      input("Press enter to continue if you still want to use this outdated version! (Weirdo! lol)")
+except:
+  print(bcolors.FAIL + "Oh no! There was a problem checking for updates... This is probably from pastebin issues. If you need to check for updates in the meantime, please visit Github.com/StethoSaysHello/KikBotnet\n(You can still use the botnet!)" + bcolors.ENDC)
+  input(bcolors.OKBLUE + "Press enter to continue: " + bcolors.ENDC)
 
 def install(package):  # This is a function to make the installs a little more efficient. I could have just used os.system again, but...
     subprocess.check_call([sys.executable, "-m", "pip", "install", package]) #This installs the package
