@@ -1,4 +1,4 @@
-**THIS PROJECT WILL NO LONGER MAINTAINED AS OF 11/02/2021.**
+**This project will not be maintained after the 5.3 release.**
 
 
 V5.2 was released on 09/26/2021!
