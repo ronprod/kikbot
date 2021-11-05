@@ -1,12 +1,16 @@
-**This project will not be maintained after the 5.3 release.**
-
-
 V5.2 was released on 09/26/2021!
 For more information, check [Updates.md](https://github.com/StethoSaysHello/KikBotnet/blob/main/Updates.md)
 
+# Goodbye Note
+
+After the 5.3 update, I will no longer be maintaining this project for the most part!
+
+If anyone who knows python and is familiar with [Tomer8007's Kik Bot API](https://github.com/tomer8007/kik-bot-api-unofficial) would like to take over this project, shoot me an email at StethoSpasm@Gmail.com.
+In the meantime, I'm not dead! I'm working on other projects, some of which are related to this botnet, like a [KivyMD](https://kivymd.readthedocs.io/en/latest/) Android app for it and a Node.js version with [YassienW's version of the API](https://github.com/YassienW/kik-node-api) that I'm almost ready to release.
+
 # About
-This is a Kik botnet that uses the [Tomer8007 Kik Bot API](https://github.com/tomer8007/kik-bot-api-unofficial) to spam users and groups.
-(Version 5.1)
+This is a Kik botnet that uses [Tomer8007's Kik Bot API](https://github.com/tomer8007/kik-bot-api-unofficial) to spam users and groups.
+(Version 5.2)
 
 I've hosted a copy on Replit for those of you who want to run it from your web browser, which you can find [here](https://replit.com/@StethoSaysHello/KikBotnet?v=1).
 
@@ -52,23 +56,4 @@ None of the code here is taken from other developers! It does not contain any ma
 
 Previous versions of this bot were obfuscated and required an access key, these limits no longer apply. 
 
-# Premium
-
-Paid users get access to a premium version of this botnet! This version costs $25.
-It contains the following additional commands:
-
-- **"Refresh"** - Used to force the bots to friend eachother.
-
-- **"Antipurge [on/off]"** - Used to toggle repeatedly unbanning/adding/promoting all other bots.
-
-- **"Antipurge check"** - Used to check if antipurge is on.
-
-- **"AddAll"** - Used for adding all other bots to a group.
-
-- **"Promote [JID/Username]"** - Used for promoting users when bot has admin.
-
-- **"Demote [JID/Username]"** - Used for demoting users when bot has admin.
-
-These features are **NOT** in this version. To gain access to the premium version, email stethospasm@gmail.com
-
-(Don't like the paywall? [_Make it yourself._](https://pastebin.com/nZJsCRGX))
+There was previously a premium version with antipurge, addall, and promote/demote, but it is no longer being sold.
