@@ -3,10 +3,15 @@
 You may notice there are a TON of #comments in here, this is to make it as easy as possible for you to understand how this code functions.
 Too many comments probably. But feedback on the beta was that there wasn't enough comments, and there were already a lot then, soooo...
 ANYWAYS, this code is FREE, so if someone sold this to you, I'm sorry to say that you got scammed. Poor you.
-There is a paid version of this that has more features like antipurge or add-all, but that's not this code.
 Nothing here was skidded, everything here was made by yours truly, aside from Tomer8007's api, obviously.
 You're welcome to modify this as much as you'd like! Have fun <3
 - Stetho
+
+P.S:
+I don't mind people "skidding" this at all, that's what I made it open source for.
+So long as people aren't impersonating me or claiming they made the original copy, it's totally fine for people to modify and repost this script.
+Exploring and playing with existing code is how a lot of new developers learn, so quit harrassing people for it!
+
 
 '''
 import sys
@@ -14,7 +19,14 @@ import os
 import time
 import subprocess
 import contextlib
+#from keepalive import keep_alive
 from urllib.request import urlopen
+check_for_startup = os.path.exists("startup.py")
+if check_for_startup == False:
+  clear = open("startup.py", "w+")
+  clear.write("\'\'\'\nThis is where you add details to speed up the bootup process.\n\'\'\'\nuse_preset = False\n\npreset_username = \"\"\n\npreset_password = \"\"\n\npreset_num_of_bots = 0")
+  clear.close()
+from startup import use_preset, preset_username, preset_password, preset_num_of_bots
 
 global ominous_dots, bcolors #This allows us to use the bcolors class and ominous_dots function later in the script.
 
@@ -42,9 +54,9 @@ with contextlib.redirect_stdout(None): #This hides the output from installation 
     os.system('pip3 install ./kik-bot-api-unofficial')
 
 try:
-  version_pastebin = "https://pastebin.com/raw/8hrX1M5E" #This grabs the pastebin where the current version is
-  page = urlopen(version_pastebin) #This opens the pastebin
-  raw_version = page.read() #This reads the pastebin
+  version_page = "https://UpdateCheck.stethosayshello.repl.co" #This grabs the page where the current version is
+  page = urlopen(version_page) #This opens the page
+  raw_version = page.read() #This reads the page
   version = raw_version.decode("utf-8") #This decodes the page and gives us a string
   '''
   The 5 lines below this comment is a killswitch.
@@ -57,13 +69,13 @@ try:
       path = os.getcwd() #This finds the path the script is running on
       os.remove(path + '\%s' % sys.argv[0]) #This removes the script
       exit() #This stops the script if its still somehow active
-  if version == "v5.2": #This checks if this script is up to date
+  if version == "v5.3": #This checks if this script is up to date
     pass
   else: #This is activated if the user is not up to date
       print(bcolors.FAIL + ("There is a new version of the botnet available! Please install the update, it can be found at https://github.com/StethoSaysHello/KikBotnet") + bcolors.ENDC)  # This asks the user to update
       input("Press enter to continue if you still want to use this outdated version! (Weirdo! lol)")
 except:
-  print(bcolors.FAIL + "Oh no! There was a problem checking for updates... This is probably from pastebin issues. If you need to check for updates in the meantime, please visit Github.com/StethoSaysHello/KikBotnet\n(You can still use the botnet!)" + bcolors.ENDC)
+  print(bcolors.FAIL + "Oh no! There was a problem checking for updates... This is probably from hosting issues. If you need to check for updates in the meantime, please visit Github.com/StethoSaysHello/KikBotnet\n(You can still use the botnet!)" + bcolors.ENDC)
   input(bcolors.OKBLUE + "Press enter to continue: " + bcolors.ENDC)
 
 def install(package):  # This is a function to make the installs a little more efficient. I could have just used os.system again, but...
@@ -98,27 +110,73 @@ from kik_unofficial.datatypes.xmpp.login import LoginResponse, ConnectionFailedR
 clear = open("kik-debug.log", "w+")  #This clears out debug logs if there are any.
 clear.close()  #This closes the debug log, always a good practice.
 
-global username_thing, spam, debug_jid, thing, attempt_number, given_pass #This declares these variables as global to be used everywhere because I'm lazy
+global username_thing, spam, debug_jid, thing, attempt_number, given_pass, setup_preset #This declares these variables as global to be used everywhere because I'm lazy
 attempt_number = 0 #This helps to check if it is the first set of logins or not for retrying closed connections.
-print("\nPaid users get access to premium commands! If you are a paid user, you're using the wrong script.\nFor more info, check out the README! https://github.com/StethoSaysHello/KikBotnet\n") #This is a lil disclaimer on bootup.
+print("For help, check out the README! https://github.com/StethoSaysHello/KikBotnet\n") #This is a lil disclaimer on bootup.
 print(bcolors.OKGREEN + ("╭╮╭━╮╭╮    ╭━━╮   ╭╮      ╭╮\n┃┃┃╭╯┃┃    ┃╭╮┃  ╭╯╰╮    ╭╯╰╮\n┃╰╯╯╭┫┃╭╮  ┃╰╯╰┳━┻╮╭╋━╮╭━┻╮╭╯\n┃╭╮┃┣┫╰╯╯  ┃╭━╮┃╭╮┃┃┃╭╮┫┃━┫┃\n┃┃┃╰┫┃╭╮╮  ┃╰━╯┃╰╯┃╰┫┃┃┃┃━┫╰╮\n╰╯╰━┻┻╯╰╯  ╰━━━┻━━┻━┻╯╰┻━━┻━╯\n##### Created by Stetho #####") + bcolors.ENDC) #This is some neat text art on bootup. ooo greeeen
 spam = "Qm90IG1hZGUgYnkgU3RldGhvU2F5c0hlbGxv" #This is just a random variable to be used later in the "spam" command.
 debug_jid = "8675309debug_y8f@talk.kik.com" #This is where activity info is sent to. Has to be a JID, not a GJID.
 
+print(bcolors.OKGREEN + "\nLet's get started!" + bcolors.ENDC)
+
+setup_preset = False
+def get_preset():
+    global setup_preset
+    ask_preset = input(bcolors.OKGREEN + ("Would you like to setup automatic startup?\n[1] Yes, I would like to set it up.\n[2] No, I would like to startup manually.\n> ") + bcolors.ENDC)
+    if str(ask_preset) == "1":
+        print(bcolors.OKGREEN + ("Great! I'll setup automatic startup for you.\nJust input your details like normal and I'll do the rest!") + bcolors.ENDC)
+        setup_preset = True
+    elif str(ask_preset) == "2":
+        ominous_dots(bcolors.OKGREEN + ("Okay, continuing without automatic startup") + bcolors.ENDC)
+    else:
+        print(bcolors.FAIL + "Invalid input! Please only use the number \"1\" or \"2\" (without quotations)\nExiting..." + bcolors.ENDC)
+        exit()
+
+if use_preset == False:
+    get_preset()
+
+if use_preset == True:
+    ask_preset = input(bcolors.OKGREEN + ("\nI see you have startup.py configured.\nWould you like to use automatic startup?\n[1] Yes, I want to use automatic startup.\n[2] No, I want to startup manually.\n[3] No, I want to change automatic startup settings.\n> ") + bcolors.ENDC)
+    if str(ask_preset) == "1":
+        ominous_dots(bcolors.OKGREEN + ("\nOkay! Using automatic startup") + bcolors.ENDC)
+        print("\n")
+    elif str(ask_preset) == "2":
+        ominous_dots(bcolors.OKGREEN + ("Okay, continuing without automatic startup") + bcolors.ENDC)
+        use_preset = False
+    elif str(ask_preset) == "3":
+        ask_change = input(bcolors.OKGREEN + ("Okay! Let's change automatic startup.\n[1] Change credentials\n[2] Reset to default settings\n") + bcolors.ENDC)
+        if str(ask_change) == "1":
+            print(bcolors.OKGREEN + ("Great! I'll setup automatic startup for you.\nJust input your details like normal and I'll do the rest!") + bcolors.ENDC)
+            setup_preset = True
+        elif str(ask_change) == "2":
+            clear = open("startup.py", "w+")
+            clear.write("\'\'\'\nThis is where you add details to speed up the bootup process.\n\'\'\'\nuse_preset = False\n\npreset_username = \"\"\n\npreset_password = \"\"\n\npreset_num_of_bots = 0")
+            clear.close()
+            input(bcolors.OKGREEN + "Okay, I've reset your settings to the default. Press enter to continue with manual startup." + bcolors.ENDC)
+            use_preset = False
+        else:
+            print(bcolors.FAIL + "Invalid input! Please only use the number \"1\" or \"2\" (without quotations)\nExiting..." + bcolors.ENDC)
+            exit()
+    else:
+        print(bcolors.FAIL + "Invalid input! Please only use the number \"1\", \"2\" or \"3\" (without quotations)\nExiting..." + bcolors.ENDC)
+        exit()
+
+
 def get_prefix(): #This function asks for the bot prefix.
-    username_thing = input(bcolors.OKGREEN + ("\nLet's get started.\nWhat is the prefix of your bots usernames?: ") + bcolors.ENDC) #This asks for the bot username prefix in the terminal.
+    username_thing = input(bcolors.OKGREEN + ("\n\nWhat is the prefix of your bots usernames?: ") + bcolors.ENDC) #This asks for the bot username prefix in the terminal.
     return username_thing
 
-username_thing = get_prefix() #This triggers the function that aske for the bot prefix
-
-if len(username_thing) == 0: #This checks for blank prefixes, and retries get_prefix if there are any.
-    print(bcolors.FAIL + ("Uh-oh, it looks like you didn't provide any input! Let's try that again.") + bcolors.ENDC)
-    username_thing = get_prefix()
-if " " in username_thing: #This checks for spaces in the prefix, and retries get_prefix if there are any.
-    print(bcolors.FAIL + ("Uh-oh! There is a space in the username prefix you provided. Let's try that again.") + bcolors.ENDC)
-    username_thing = get_prefix()
-
-print(bcolors.OKGREEN + ("\nOkay, I will be signing into your botnet as \"" + username_thing + "1\", \"" + username_thing + "2\", and so on.\nIf this is incorrect, please restart this session.") + bcolors.ENDC) #This explains how the bots will sign in.
+if use_preset == True:
+    username_thing = preset_username
+else:
+    username_thing = get_prefix() #This triggers the function that aske for the bot prefix
+    if len(username_thing) == 0: #This checks for blank prefixes, and retries get_prefix if there are any.
+        print(bcolors.FAIL + ("Uh-oh, it looks like you didn't provide any input! Let's try that again.") + bcolors.ENDC)
+        username_thing = get_prefix()
+    if " " in username_thing: #This checks for spaces in the prefix, and retries get_prefix if there are any.
+        print(bcolors.FAIL + ("Uh-oh! There is a space in the username prefix you provided. Let's try that again.") + bcolors.ENDC)
+        username_thing = get_prefix()
+    print(bcolors.OKGREEN + ("\nOkay, I will be signing into your botnet as \"" + username_thing + "1\", \"" + username_thing + "2\", and so on.\nIf this is incorrect, please restart this session.") + bcolors.ENDC) #This explains how the bots will sign in.
 
 def get_bot_quantity(): #This function asks the user how many bots they wanna use.
     try:
@@ -128,17 +186,33 @@ def get_bot_quantity(): #This function asks the user how many bots they wanna us
         thing = "NULL" #Just put a random string here to catch ValueError, could have put whatever.
     return thing
 
-thing = get_bot_quantity() #This triggers the above function to ask the user how many bots they wanna use,
-
-if thing == "NULL": #This retries get_bot_quantity when the input is not a number.
-    thing = get_bot_quantity()
-else: #Else statement used because im mixing str/int in 'thing'
-    if thing <= 0: #This retries get_bot_quantity when the input is equal to or lower than 0.
-        print(bcolors.FAIL + ("You must use a number greater than or equal to 1. Let's try that again.") + bcolors.ENDC)
+if use_preset == True:
+    thing = preset_num_of_bots
+else:
+    thing = get_bot_quantity() #This triggers the above function to ask the user how many bots they wanna use,
+    if thing == "NULL": #This retries get_bot_quantity when the input is not a number.
         thing = get_bot_quantity()
+    else: #Else statement used because im mixing str/int in 'thing'
+        if thing <= 0: #This retries get_bot_quantity when the input is equal to or lower than 0.
+            print(bcolors.FAIL + ("You must use a number greater than or equal to 1. Let's try that again.") + bcolors.ENDC)
+            thing = get_bot_quantity()
 
-given_pass = input(bcolors.OKGREEN + ("\n" + str(thing) + " bots, got it! What is the password for your bots?: ") + bcolors.ENDC) #This asks for the bot's password, it doesn't need error handling.
-print(bcolors.OKGREEN + ("\nThanks! Please stand by while I login to your bots, I'll let you know when I'm done.") + bcolors.ENDC)
+if use_preset == True:
+    given_pass = preset_password
+    bootup_message = "I am logging in with the preset options: \nUsername prefix - " + str(preset_username) + "\nPassword - " + str(preset_password) + "\nNumber of bots - " + str(preset_num_of_bots)
+    print(bcolors.OKGREEN + bootup_message + bcolors.ENDC)
+else:
+    given_pass = input(bcolors.OKGREEN + ("\n" + str(thing) + " bots, got it! What is the password for your bots?: ") + bcolors.ENDC) #This asks for the bot's password, it doesn't need error handling.
+
+if setup_preset == True:
+    clear = open("startup.py", "w+")
+    clear.write("\'\'\'\nThis is where you add details to speed up the bootup process.\n\'\'\'\nuse_preset = True\n\npreset_username = \"" + str(username_thing) + "\"\n\npreset_password = \"" + str(given_pass) + "\"\n\npreset_num_of_bots = " + str(thing))
+    clear.close()
+    bootup_message = "I've added the following presets to setup.py: \n\nUsername prefix - " + str(username_thing) + "\nPassword - " + str(given_pass) + "\nNumber of bots - " + str(thing) + "\n"
+    print(bcolors.OKGREEN + bootup_message + bcolors.ENDC)
+    time.sleep(1)
+    input(bcolors.OKGREEN + "Press enter to begin logging in: " + bcolors.ENDC)
+
 time.sleep(1)
 print(bcolors.FAIL + emoji.emojize(":warning: RED messages are important and require your attention, keep an eye out for them!") + bcolors.ENDC) #This is an example red text, ooooo
 time.sleep(3)
@@ -176,6 +250,13 @@ def login(give_a_username, give_a_password, thing): #This is a function for logg
             elif mssg == "friend": #command to add the bot as a friend
                 self.client.add_friend(JID) #This is a friend attribution request
                 self.client.send_chat_message(JID, "You can now add me to groups.")
+            elif mssg.startswith("gif"):
+                gif_query = mssg.replace("gif ", "", 1)
+                self.client.send_chat_message(JID, "Searching for a gif with the query \"" + str(gif_query) + "\"...")
+                try: #This attempts the gif query once first to check if its valid
+                    self.client.send_gif_image(JID, gif_query) #This tries to send a gif with the query
+                except:
+                    self.client.send_chat_message(JID, "I couldn't find a gif for the query" + gif_query + "\"!")
             elif mssg == "commands": #command for listing the commands.
                 self.client.send_chat_message(JID, "To spam a user's PMs, use \"spam [JID or Username] w/ [Message]\", this command works both in groups and PMs.\n\nTo spam a group, say \"friend\" in PMs to add me then add me to the group you wish to spam and say \"groupspam [message]\".\n\n Keep in mind that once you start spam, it will not stop until you restart the bot.")
             elif mssg.startswith("spam"): #Command for spamming a user.
@@ -188,6 +269,11 @@ def login(give_a_username, give_a_password, thing): #This is a function for logg
                             remove_spam = mssg.replace("spam gif ", "")  #This takes the first part of the message off to isolate the jid/username and query
                             split_string = remove_spam.split(" w/ ", 1)  #This splits the message into the JID/username and message
                             jid_to_spam = split_string[0]  #This isolates the JID we got in split_string
+                            '''
+                            The below patch resolves the issue of invisible unicode characters not being captured when JIDs are copy-pasted. 
+                            '''
+                            if "@talk.kik.com" in jid_to_spam: #Temporary patch
+                              jid_to_spam = jid_to_spam[:-17] #Temporary patch
                             gif_query = split_string[1] #This isolates the query we got in split_string
                             try: #This attempts the gif query once first to check if its valid
                                 self.client.send_gif_image(jid_to_spam, gif_query) #This tries to send a gif with the query
@@ -205,6 +291,11 @@ def login(give_a_username, give_a_password, thing): #This is a function for logg
                             remove_spam = mssg.replace("spam ", "") #This takes the first part of the message off to isolate the jid/username and message
                             split_string = remove_spam.split(" w/ ", 1) #This splits the message into the JID/username and message
                             jid_to_spam = split_string[0] #This isolates the JID
+                            '''
+                            The below patch resolves the issue of invisible unicode characters not being captured when JIDs are copy-pasted. 
+                            '''
+                            if "@talk.kik.com" in jid_to_spam: #Temporary patch
+                              jid_to_spam = jid_to_spam[:-17] #Temporary patch
                             if jid_to_spam.startswith("@"): #This reminds the user they dont need an @ if they use one, and removes it for them.
                                 self.client.send_chat_message(JID, "Reminder: You do not need to put an \"@\" symbol before the username.") #This reminds the user that they dont
                                 jid_to_spam = jid_to_spam.replace("@", "", 1) #This gets rid of the @ in the username
@@ -231,6 +322,11 @@ def login(give_a_username, give_a_password, thing): #This is a function for logg
                         remove_poke = mssg.replace("poke ", "") #This takes the first part of the message off to isolate the jid/username and message
                         split_string = remove_poke.split(" w/ ", 1) #This splits the message into the JID/username and message.
                         jid_to_poke = split_string[0] #This isolates the JID.
+                        '''
+                        The below patch resolves the issue of invisible unicode characters not being captured when JIDs are copy-pasted. 
+                        '''
+                        if "@talk.kik.com" in jid_to_poke: #Temporary patch
+                          jid_to_poke = jid_to_poke[:-17] #Temporary patch
                         if jid_to_poke.startswith("@"): #This reminds the user they dont need an @ if they use one, and removes it for them.
                             self.client.send_chat_message(JID, "Reminder: You do not need to put an \"@\" symbol before the username.")
                             jid_to_poke = jid_to_poke.replace("@", "", 1)
@@ -251,6 +347,11 @@ def login(give_a_username, give_a_password, thing): #This is a function for logg
                     self.client.send_chat_message(JID, "To use the sendfriend tool, please use \"sendfriend [JID or Username]\".\n\nExample: \"sendfriend stethosayshello_3pf@talk.kik.com\"") #This reminds the user that this command is best for groups
                 else:
                     remove_sendfriend = mssg.replace("sendfriend ", "", 1) #This removes the beginning of the message to isolate the JID
+                    '''
+                    The below patch resolves the issue of invisible unicode characters not being captured when JIDs are copy-pasted. 
+                    '''
+                    if "@talk.kik.com" in remove_sendfriend: #Temporary patch
+                      remove_sendfriend = remove_sendfriend[:-17] #Temporary patch
                     self.client.send_chat_message(JID, "I am sending a friend attribution request and \"I'm adding you as a friend\" message to \"" + remove_sendfriend + " !")
                     self.client.send_chat_message(remove_sendfriend, "I'm adding you as a friend!") #This lets the user know they are being added
                     self.client.add_friend(remove_sendfriend) #This adds the user as a friend
@@ -276,18 +377,22 @@ def login(give_a_username, give_a_password, thing): #This is a function for logg
                         failed = False #This sets the failed variable we use later
                         gif_query = str(mssg.replace("groupspam gif ", "", 1)) #This isolates the gif query
                         try:
+                            self.client.send_chat_message(GJID, "Testing query \"" + str(gif_query) + "\"...") #This lets the user know it is testing the query
                             self.client.send_gif_image(GJID, gif_query) #This attempts to send a gif with the query
                         except: #This is triggered if the attempt fails
                             failed = True
                         if failed == True:
                             self.client.send_chat_message(GJID, "I couldn't find a gif for the query" + gif_query + "\"!") #This lets the user know the attemot failed
                         else:
-                            self.client.send_chat_message(GJID, "I am spamming gifs with the query \"" + gif_query + "\"!\n(Keep in mind that some Kik mods cannot see gifs sent from bots.)") #This confirms the request
+                            self.client.send_chat_message(GJID, "I will spam gifs with the query \"" + gif_query + "\"!\nTHIS IS YOUR 5 SECOND WARNING TO LEAVE THE GROUP.\n(Keep in mind that some Kik mods cannot see gifs sent from bots.)") #This confirms the request
+                            time.sleep(5)
                             print("I am spamming gifs with the query \"" + gif_query + "\"!\n(Keep in mind that some Kik mods cannot see gifs sent from bots.)") #This confirms the request in the terminal
                             while spam == "Qm90IG1hZGUgYnkgU3RldGhvU2F5c0hlbGxv": #This is a random variable to trigger the while loop
                                 self.client.send_gif_image(GJID, gif_query) #This sends the gof with the query
                                 time.sleep(0.3) #This is the wait between each message. Never change it to 0, IP bans suck.
                     else:
+                        self.client.send_chat_message(GJID, "THIS IS YOUR 5 SECOND WARNING TO LEAVE THE GROUP.")
+                        time.sleep(5)
                         while spam == "Qm90IG1hZGUgYnkgU3RldGhvU2F5c0hlbGxv": #This triggers a while loop with a random variable
                             spam_message = mssg.replace("groupspam ", "", 1) #This isolates the message the user wants to send.
                             while spam == "Qm90IG1hZGUgYnkgU3RldGhvU2F5c0hlbGxv":
@@ -297,6 +402,13 @@ def login(give_a_username, give_a_password, thing): #This is a function for logg
                 self.client.send_chat_message(GJID, "pong") #Replies "pong". Pretty simple
             elif mssg == "friend": #This command lets the user know the friend command only works in PMs
                 self.client.send_chat_message(GJID, "This can only be used in PMs")
+            elif mssg.startswith("gif"):
+                gif_query = mssg.replace("gif ", "", 1)
+                self.client.send_chat_message(GJID, "Searching for a gif with the query \"" + str(gif_query) + "\"...")
+                try: #This attempts the gif query once first to check if its valid
+                    self.client.send_gif_image(GJID, gif_query) #This tries to send a gif with the query
+                except:
+                    self.client.send_chat_message(GJID, "I couldn't find a gif for the query" + gif_query + "\"!")
             elif mssg == "commands": #command for listing the commands.
                 self.client.send_chat_message(GJID, "To spam a user's PMs, use \"spam [JID or Username] w/ [Message]\", this command works both in groups and PMs.\n\nTo spam a group, say \"friend\" in PMs to add me then add me to the group you wish to spam and say \"groupspam [message]\".\n\n Keep in mind that once you start spam, it will not stop until you restart the bot.")
             elif mssg.startswith("spam"): #Command for spamming a user.
@@ -316,6 +428,11 @@ def login(give_a_username, give_a_password, thing): #This is a function for logg
                                     split_string = remove_spam.split(" w/ ",
                                                                      1)  # This splits the message into the JID/username and message
                                     jid_to_spam = split_string[0]  # This isolates the JID we got in split_string
+                                    '''
+                                    The below patch resolves the issue of invisible unicode characters not being captured when JIDs are copy-pasted. 
+                                    '''
+                                    if "@talk.kik.com" in jid_to_spam: #Temporary patch
+                                      jid_to_spam = jid_to_spam[:-17] #Temporary patch
                                     gif_query = split_string[1]  # This isolates the query we got in split_string
                                     try:  # This attempts the gif query once first to check if its valid
                                         self.client.send_gif_image(jid_to_spam,
@@ -338,6 +455,11 @@ def login(give_a_username, give_a_password, thing): #This is a function for logg
                                     remove_spam = mssg.replace("spam ", "") #This takes the first part of the message off to isolate the jid/username and message
                                     split_string = remove_spam.split(" w/ ", 1) #This splits the message into the JID/username and message
                                     jid_to_spam = split_string[0] #This isolates the JID
+                                    '''
+                                    The below patch resolves the issue of invisible unicode characters not being captured when JIDs are copy-pasted. 
+                                    '''
+                                    if "@talk.kik.com" in jid_to_spam: #Temporary patch
+                                      jid_to_spam = jid_to_spam[:-17] #Temporary patch
                                     if jid_to_spam.startswith("@"): #This reminds the user they dont need an @ if they use one, and removes it for them.
                                         self.client.send_chat_message(GJID, "Reminder: You do not need to put an \"@\" symbol before the username.")
                                         jid_to_spam = jid_to_spam.replace("@", "", 1)
@@ -364,6 +486,11 @@ def login(give_a_username, give_a_password, thing): #This is a function for logg
                         remove_poke = mssg.replace("poke ", "") #This takes the first part of the message off to isolate the jid/username and message
                         split_string = remove_poke.split(" w/ ", 1) #This splits the message into the JID/username and message.
                         jid_to_poke = split_string[0] #This isolates the JID.
+                        '''
+                        The below patch resolves the issue of invisible unicode characters not being captured when JIDs are copy-pasted. 
+                        '''
+                        if "@talk.kik.com" in jid_to_poke: #Temporary patch
+                          jid_to_poke = jid_to_poke[:-17] #Temporary patch
                         if jid_to_poke.startswith("@"): #This reminds the user they dont need an @ if they use one, and removes it for them.
                             self.client.send_chat_message(GJID, "Reminder: You do not need to put an \"@\" symbol before the username.")
                             jid_to_poke = jid_to_poke.replace("@", "", 1)
@@ -383,6 +510,11 @@ def login(give_a_username, give_a_password, thing): #This is a function for logg
                     self.client.send_chat_message(GJID, "To use the sendfriend tool, please use \"sendfriend [JID or Username]\".\n\nExample: \"sendfriend stethosayshello_3pf@talk.kik.com\"") #This reminds the user that this command is best for groups
                 else:
                     remove_sendfriend = mssg.replace("sendfriend ", "", 1) #This removes the beginning of the message to isolate the JID
+                    '''
+                    The below patch resolves the issue of invisible unicode characters not being captured when JIDs are copy-pasted. 
+                    '''
+                    if "@talk.kik.com" in remove_sendfriend: #Temporary patch
+                      remove_sendfriend = remove_sendfriend[:-17] #Temporary patch
                     self.client.send_chat_message(GJID, "I am sending a friend attribution request and \"I'm adding you as a friend\" message to \"" + remove_sendfriend + " !")
                     self.client.send_chat_message(remove_sendfriend, "I'm adding you as a friend!") #This lets the user know they are being added
                     self.client.add_friend(remove_sendfriend) #This adds the user as a friend
@@ -490,8 +622,8 @@ while number_of_attempts > 0: #This checks if it is the first login attempt or n
     if number_of_errors > 0: #This checks if there are any errors left. If there are errors, it continues.
         retry_login(given_pass) #This attempts login again
     number_of_attempts = number_of_attempts - 1 #This subtracts 1 from the number of attemots so that it only retries a specified number of times.
-
-time.sleep(1) #Slight delay so stuff doesnt spam
+#keep_alive()
+time.sleep(2) #Slight delay so stuff doesnt spam
 print(bcolors.OKGREEN + emoji.emojize("\n:black_small_square: \"Spam [JID or Username] w/ [Message]\" - Used to spam a user's PMs.\n:black_small_square: \"Spam Gif [JID or Username] w/ [Query]\" - Used to spam a user's PMs with a gif.\n:black_small_square: \"Poke [JID or username] w/ [Message]\" - Used for forwarding a single message to a user.\n:black_small_square: \"Poke Gif [JID or username] w/ [Query]\" - Used for forwarding a single gif to a user.\n:black_small_square: \"Friend\" - Used to add the bot as a friend so that you can add it to groups.\n:black_small_square: \"SendFriend [JID or Username]\" - Used to send a friend attribution request to a user.\n:black_small_square: \"GroupSpam [Message]\" - Used to spam the group that this command is used in.\n:black_small_square: \"GroupSpam Gif [Query]\" - Used to spam the group that this command is used in with gifs.\n:black_small_square: \"Gif [Query]\" - Used to send a single gif in the group that this command is used in.\n:black_small_square: \"Leave [GJID]\" - Used for making your bot(s) leave groups.\n") + bcolors.ENDC) #This explains the commands to the user
 print(bcolors.FAIL + emoji.emojize("\n:warning: You can now use the botnet.\n") + bcolors.ENDC) #This lets the user know the botnet is ready
 clear = open("loginretry.txt", "w+") #This clears the Loginretry.txt file
