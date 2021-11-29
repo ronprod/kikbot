@@ -10,9 +10,8 @@ In the meantime, I'm not dead! I'm working on other projects, some of which are 
 
 # About
 This is a Kik botnet that uses [Tomer8007's Kik Bot API](https://github.com/tomer8007/kik-bot-api-unofficial) to spam users and groups.
-(Version 5.2)
 
-I've hosted a copy on Replit for those of you who want to run it from your web browser, which you can find [here](https://replit.com/@StethoSaysHello/KikBotnet?v=1).
+I've hosted a copy on Replit for those of you who want to run it from your web browser, which you can find [here](https://replit.com/@StethoSaysHello/KikBotnet?v=1). _(Please note that this version is in 5.2 due to automatic setup, as 5.3 is designed to be run induvidually.)_
 
 # Installation
 
